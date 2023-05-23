@@ -1,6 +1,6 @@
 {
 	"name": "action-electron-builder",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"description": "GitHub Action for building Electron app",
 	"author": {
 		"name": "MakAndJo",
