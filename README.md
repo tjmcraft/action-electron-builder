@@ -1,1 +1,1 @@
-# action-electron-builder
+# TJMC Electron-Builder Action
