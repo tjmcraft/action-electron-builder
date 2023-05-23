@@ -3,7 +3,7 @@ author: MakAndJo
 description: GitHub Action for building Electron app
 
 inputs:
-  github_token:
+  gh_token:
     description: GitHub authentication token
     required: true
   mac_cert:
