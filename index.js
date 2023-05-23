@@ -78,11 +78,11 @@ const getInput = (name, required) => {
 	// variables (required by `electron-builder`)
 	const platform = getPlatform();
 	if (platform === "mac") {
-		setEnv("CSC_LINK", getInput("mac_certs"));
-		setEnv("CSC_KEY_PASSWORD", getInput("mac_certs_password"));
+		setEnv("CSC_LINK", getInput("mac_cert"));
+		setEnv("CSC_KEY_PASSWORD", getInput("mac_cert_password"));
 	} else if (platform === "windows") {
-		setEnv("CSC_LINK", getInput("windows_certs"));
-		setEnv("CSC_KEY_PASSWORD", getInput("windows_certs_password"));
+		setEnv("CSC_LINK", getInput("windows_cert"));
+		setEnv("CSC_KEY_PASSWORD", getInput("windows_cert_password"));
 	}
 
 	// Disable console advertisements during install phase
