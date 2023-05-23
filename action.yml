@@ -22,25 +22,17 @@ inputs:
     description: Name of the optional NPM build script which is executed before `electron-builder`
     required: false
     default: build
-  skip_build:
-    description: Whether the action should execute the NPM build script before running `electron-builder`
-    required: false
-    default: false
   release:
     description: Whether the app should be released after a successful build
     required: false
-    default: false
+    default: "false"
   args:
     description: Other arguments to pass to the `electron-builder` command, e.g. configuration overrides
     required: false
     default: ""
-  max_attempts:
-    description: Maximum number of attempts for completing the build and release step
-    required: false
-    default: "1"
 
 runs:
-  using: node18
+  using: node16
   main: index.js
 
 branding:
