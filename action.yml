@@ -1,0 +1,48 @@
+name: Electron Builder Action
+author: MakAndJo
+description: GitHub Action for building Electron app
+
+inputs:
+  github_token:
+    description: GitHub authentication token
+    required: true
+  mac_cert:
+    description: Base64-encoded code signing certificate for macOS
+    required: false
+  mac_cert_password:
+    description: Password for decrypting `mac_certs`
+    required: false
+  windows_cert:
+    description: Base64-encoded code signing certificate for Windows
+    required: false
+  windows_cert_password:
+    description: Password for decrypting `windows_certs`
+    required: false
+  build_script_name:
+    description: Name of the optional NPM build script which is executed before `electron-builder`
+    required: false
+    default: build
+  skip_build:
+    description: Whether the action should execute the NPM build script before running `electron-builder`
+    required: false
+    default: false
+  release:
+    description: Whether the app should be released after a successful build
+    required: false
+    default: false
+  args:
+    description: Other arguments to pass to the `electron-builder` command, e.g. configuration overrides
+    required: false
+    default: ""
+  max_attempts:
+    description: Maximum number of attempts for completing the build and release step
+    required: false
+    default: "1"
+
+runs:
+  using: node18
+  main: index.js
+
+branding:
+  icon: package
+  color: green
