@@ -91,13 +91,6 @@ const getInput = (name, required) => {
 	log(`Installing dependencies…`);
 	run("npm install", pkgRoot);
 
-	// Run NPM build script if it exists
-	const buildScriptName = getInput("build_script_name", true);
-	if (buildScriptName) {
-		log("Running the build script…");
-		run(`npm run ${buildScriptName} --if-present`, pkgRoot);
-	}
-
 	const release = getInput("release", true) === "true";
 	log(`Building${release ? " and releasing" : ""} the Electron app…`);
 	const args = getInput("args") || "";
