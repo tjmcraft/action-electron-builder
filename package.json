@@ -1,0 +1,15 @@
+{
+	"name": "action-electron-builder",
+	"version": "1.0.0",
+	"description": "GitHub Action for building Electron app",
+	"author": {
+		"name": "MakAndJo",
+		"email": "max@tjmc.ru"
+	},
+	"repository": "github:tjmcraft/action-electron-builder",
+	"license": "MIT",
+	"main": "./index.js",
+	"scripts": {},
+	"dependencies": {},
+	"devDependencies": {}
+}
