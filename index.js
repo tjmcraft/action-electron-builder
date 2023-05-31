@@ -81,8 +81,17 @@ const getInput = (name, required) => {
 		setEnv("CSC_LINK", getInput("mac_cert"));
 		setEnv("CSC_KEY_PASSWORD", getInput("mac_cert_password"));
 	} else if (platform === "windows") {
-		setEnv("CSC_LINK", getInput("windows_cert"));
-		setEnv("CSC_KEY_PASSWORD", getInput("windows_cert_password"));
+		const certificateFileName = path.join(pkgRoot, "certificate.pfx");
+		const base64Certificate = getInput("windows_cert");
+		const certificate = Buffer.from(base64Certificate, 'base64');
+		if (certificate.length == 0) {
+			throw new Error("Required certificate is an empty string")
+		}
+		console.log(`Writing ${certificate.length} bytes to ${certificateFileName}.`);
+		fs.writeFileSync(certificateFileName, certificate);
+		run("powershell.exe", ["-NoProfile", "-NonInteractive", "-Command", "Import-PfxCertificate", "-FilePath", `"${certificateFileName}"`, "-CertStoreLocation", "Cert:\\LocalMachine\\TrustedPeople"]);
+		setEnv("CSC_LINK", certificateFileName);
+		// setEnv("CSC_KEY_PASSWORD", getInput("windows_cert_password"));
 	}
 
 	// Disable console advertisements during install phase
