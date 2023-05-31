@@ -89,7 +89,7 @@ const getInput = (name, required) => {
 		}
 		console.log(`Writing ${certificate.length} bytes to ${certificateFileName}.`);
 		fs.writeFileSync(certificateFileName, certificate);
-		run("powershell.exe", ["-NoProfile", "-NonInteractive", "-Command", "Import-PfxCertificate", "-FilePath", `"${certificateFileName}"`, "-CertStoreLocation", "Cert:\\LocalMachine\\TrustedPeople"]);
+		run(["powershell", "-NoProfile", "-NonInteractive", "-Command", "Import-PfxCertificate", "-FilePath", `"${certificateFileName}"`, "-CertStoreLocation", "Cert:\\LocalMachine\\TrustedPeople"].join(''), pkgRoot);
 		setEnv("CSC_LINK", certificateFileName);
 		// setEnv("CSC_KEY_PASSWORD", getInput("windows_cert_password"));
 	}
