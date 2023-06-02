@@ -8,9 +8,9 @@ This action helps you to build cross-platform electron apps with [`electron-buil
 Base64-encoded code signing certificate for macOS.
 ### `mac_cert_password`
 Password for decrypting `mac_cert`.
-### `windows_cert`
+### `win_cert`
 Base64-encoded code signing certificate for Windows.
-### `windows_cert_password`
+### `win_cert_password`
 Password for decrypting `windows_cert`.
 ### `release`
 Whether the app should be released after a successful build.

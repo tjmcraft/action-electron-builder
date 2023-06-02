@@ -12,10 +12,10 @@ inputs:
   mac_cert_password:
     description: Password for decrypting `mac_certs`
     required: false
-  windows_cert:
+  win_cert:
     description: Base64-encoded code signing certificate for Windows
     required: false
-  windows_cert_password:
+  win_cert_password:
     description: Password for decrypting `windows_certs`
     required: false
   release:

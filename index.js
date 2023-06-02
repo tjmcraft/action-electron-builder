@@ -81,8 +81,8 @@ const getInput = (name, required) => {
 		setEnv("CSC_LINK", getInput("mac_cert"));
 		setEnv("CSC_KEY_PASSWORD", getInput("mac_cert_password"));
 	} else if (platform === "windows") {
-		setEnv("CSC_LINK", getInput("windows_cert"));
-		setEnv("CSC_KEY_PASSWORD", getInput("windows_cert_password"));
+		setEnv("CSC_LINK", getInput("win_cert"));
+		setEnv("CSC_KEY_PASSWORD", getInput("win_cert_password"));
 	}
 
 	// Disable console advertisements during install phase
